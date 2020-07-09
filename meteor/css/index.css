@@ -1,0 +1,165 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  /* background: linear-gradient( rgba(3, 3, 3, .5),rgba(0, 0, 0, .7)); */
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%)
+}
+
+#stars {
+  margin: 0 auto;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background-image: url("https://tse2-mm.cn.bing.net/th/id/OIP.hutsmUcFnqB-8AKGKSoOEgHaL2?pid=Api&rs=1");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.star {
+  display: block;
+  width: 1px;
+  background: transparent;
+  position: relative;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px #ffffff);
+  /*过渡动画*/ 
+  animation: star-fall 3.5s linear infinite;
+  -webkit-animation: star-fall 3.5s linear infinite;
+  -moz-animation: star-fall 3.5s linear infinite;
+}
+
+.star:after {
+  content: '';
+  display: block;
+  border: 0px solid #fff;
+  border-width: 0px 90px 2px 90px;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+  border-color: transparent transparent transparent rgba(255, 255, 255, .6);
+  box-shadow: 0 0 1px 0 rgba(255, 255, 255, .1);
+  /*变形*/       
+  transform: rotate(-45deg) translate3d(1px, 3px, 0);
+  -webkit-transform: rotate(-45deg) translate3d(1px, 3px, 0);
+  -moz-transform: rotate(-45deg) translate3d(1px, 3px, 0);
+  transform-origin: 0% 100%;
+  -webkit-transform-origin: 0% 100%;
+  -moz-transform-origin: 0% 100%;
+  
+  animation: star-fall-after 3.5s linear initial;
+  -webkit-animation: star-fall-after 3.5s linear initial;
+  -moz-animation: star-fall-after 3.5s linear initial;
+}
+
+@keyframes star-fall {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translate3d(0, 0, 0);
+    -webkit-transform: scale(0.5) translate3d(0, 0, 0);
+    -moz-transform: scale(0.5) translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(-300px, 300px, 0);
+    -webkit-transform: translate3d(-300px, 300px, 0);
+    -moz-transform: translate3d(-300px, 300px, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2) translate3d(-500px, 500px, 0);
+    -webkit-transform: scale(1.2) translate3d(-500px, 500px, 0);
+    -moz-transform: scale(1.2) translate3d(-500px, 500px, 0);
+  }
+}
+
+@keyframes star-fall-after {
+  0% {
+    border-width: 0px 80px 2px 80px;
+  }
+  50% {
+    border-width: 0px 90px 2px 90px;
+  }
+  100% {
+    border-width: 0px 45px 2px 45px;
+  }
+}
+
+/* ==================================================== */
+/* 鼠标点击的星星 */
+.star-five{
+  position: fixed;
+  display: block;
+  color: #fff;
+  width: 0px;
+  height: 0px;
+  border-right:  10px solid transparent;
+  border-bottom: 7px  solid #fff;
+  border-left:   10px solid transparent;
+  transform:rotate(35deg);
+  filter: drop-shadow(0 0 6px #ffffff);
+  z-index: 999;
+}
+
+.star-five:before {
+  border-bottom: 8px solid #fff;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -4.5px;
+  left: -6.5px;
+  display: block;
+  content: '';
+  transform: rotate(-35deg);
+}
+
+.star-five:after {
+  position: absolute;
+  display: block;
+  color: #fff;
+  top: .3px;
+  left: -10.5px;
+  width: 0px;
+  height: 0px;
+  border-right: 10px solid transparent;
+  border-bottom: 7px solid #fff;
+  border-left: 10px solid transparent;
+  transform: rotate(-70deg);
+  content: '';
+}
+
+/* ==================================================== */
+/* 弹幕的样式 */
+.barrage-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes barrage{
+  from{
+    left:100%;
+    transform:translateX(0);
+  }
+  to{
+    left:0;
+    transform:translateX(-100%);
+  }
+}
+
+.block{
+  position:absolute;
+  top: 50%;
+  left: 100%;
+  width: 100%;
+  color: #fff;
+}
